@@ -13,8 +13,9 @@ BEGIN
 END $$
 DELIMITER ;
 
+# Now to get the information of a specific student, all we need to do to is call the stored procedure and
+# pass the student's student_ID as an arguement. For example, lets find the information of student #50. 
 CALL find_student(50);
-DROP PROCEDURE find_student;
 
 #3. Find the total number of students in the school:
 SELECT COUNT(student_ID) FROM student;
@@ -23,28 +24,34 @@ SELECT COUNT(student_ID) FROM student;
 SELECT AVG(gpa) FROM student; 
 
 #5. Want to find all students will low GPAs i.e less than 2.5:
-SELECT * FROM student
+SELECT student_id, student_name, grade_level, gpa  
+FROM student
 WHERE GPA < 2.5; 
 
 #6. Want to find all students will low attendance e i.e less than 80%:
-SELECT * FROM student
+SELECT student_id, student_name, grade_level, attendance 
+FROM student
 WHERE Attendance < 80;
 
 #7. Want to find all students with high GPAs.
-SELECT * FROM student
+SELECT student_id, student_name, grade_level, gpa  
+FROM student
 WHERE GPA > 3.7; 
 
-#8. Want to find students with great attendance.
-SELECT * FROM student
+#8. Want to find students with high attendance.
+SELECT student_id, student_name, grade_level, attendance 
+FROM student
 WHERE Attendance > 90;
 
 #9. Which students have a low GPA and low attendance.
-SELECT * FROM student
-WHERE GPA < 2.5 AND Attendance < 80; 
+SELECT student_id, student_name, grade_level, gpa, attendance
+FROM student
+WHERE GPA < 2.5 AND Attendance < 80;
 
-#10. Which students are in grade 12 and have low GPA.
-SELECT * FROM student
-WHERE grade_level = 12 AND GPA < 2.5;
+#10. Want to see how many males and females attend the schoo.
+SELECT COUNT(student_id) AS "Total Number of Students", gender
+FROM student
+GROUP BY gender;
 
 # Section B. Level 2 Questions:
 
@@ -67,16 +74,14 @@ GROUP BY grade_level
 ORDER BY grade_level;
 
 #4. Find which students have a GPA higher than the average. 
-SELECT *
+SELECT student_ID, student_name, grade_level, gpa
 FROM student 
-WHERE gpa > (SELECT AVG(GPA) FROM student)
-ORDER BY student_ID;
+WHERE gpa > (SELECT AVG(GPA) FROM student);
 
 #5. Find which students have a GPA higher than the average of their grade level. 
-SELECT *
+SELECT student_ID, student_name, grade_level, gpa
 FROM student as a
-WHERE a.gpa > (SELECT AVG(GPA) FROM student WHERE grade_level = a.grade_level)
-ORDER BY student_ID; 
+WHERE a.gpa > (SELECT AVG(GPA) FROM student WHERE grade_level = a.grade_level);
 
 #6. Make an honor roll list. 
 SELECT student_Name, gpa, grade_level

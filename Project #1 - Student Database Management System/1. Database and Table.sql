@@ -1,11 +1,9 @@
-###________________________________________________________________###
-### Create student database. 
+# Create student database. 
 CREATE DATABASE student_database; 
 USE student_database; 
-###________________________________________________________________###
-
-###________________________________________________________________###
-### Create table that has all the attributes of a student. 
+#____________________________________________________________________________________________#
+# Create table that has all the attributes of a student. We have a student's ID, Full Name, Age, Gender, Grade, Attendance 
+# in percentage and GPA.  
 CREATE TABLE student(
 	Student_ID INT PRIMARY KEY AUTO_INCREMENT,
     Student_Name VARCHAR(30) NOT NULL,
@@ -15,6 +13,4 @@ CREATE TABLE student(
     Attendance INT NOT NULL,
     GPA DECIMAL(3, 2) NOT NULL
 );
-###________________________________________________________________###
-
 
