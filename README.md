@@ -1,4 +1,4 @@
-# My-SQL-Projects
+# MySQL Projects:
 Portfolio of all the MySQL projects I have worked on: 
 | Project| Description |
 |--------|------------------------------------|
