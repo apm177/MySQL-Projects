@@ -197,23 +197,3 @@ BEGIN
     ORDER BY t.date;
 END $$
 DELIMITER ;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

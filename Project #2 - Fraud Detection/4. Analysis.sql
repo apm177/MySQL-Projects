@@ -18,13 +18,13 @@ CALL get_large_card_holder_transactions(25);
 
 # Let's find early morning transactions:
 CALL get_morning_card_holder_transactions(25);
-# There seems to be one suspiciously large transaction in the morning with merchant ID 64, which is a restaurant.
+# There seems to be one suspiciously large transaction in the morning with merchant ID 87, which is a bar.
 
 # Let's find which merchants card holder 25 frequents most:
 CALL get_merchant_frequency(25);
-# Merchant ID 64 is one of the highest on the list of "Number of Transactions".
+# Card Holder 25 seems to visit other bars more than merchant ID 87. 
 
-# Now let's find all the transactions between card holder ID 25 and merchant ID 64.
-CALL get_card_holder_merchant_transactions(25, 64);
-# There is only one transaction amount larger than $1000, while the rest is $10.15 or under.
+# Now let's find all the transactions between card holder ID 25 and merchant ID 87.
+CALL get_card_holder_merchant_transactions(25, 87);
+# There is only one transaction amount larger than $1000, while the rest are small charges that are not in the morning.
 # That large transaction is most likely a fraudulent one.

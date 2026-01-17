@@ -25,9 +25,9 @@ DROP PROCEDURE get_merchant_frequency;
 DROP PROCEDURE get_card_holder_merchant_transactions;
 
 # Drop tables and database:
-DROP TABLE card_holder;
+DROP TABLE transactions;
 DROP TABLE credit_card;
+DROP TABLE card_holder;
 DROP TABLE merchant;
 DROP TABLE merchant_category;
-DROP TABLE transactions;
 DROP DATABASE transaction_database; 
